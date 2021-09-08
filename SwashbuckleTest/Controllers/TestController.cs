@@ -18,17 +18,17 @@ namespace SwashbuckleTest.Controllers
 
         // Argument "id" is not picked up 
         [HttpGet("testgetquerystring1")]
-        public string GetQuerystring1(long id, string name)
+        public string GetQuerystring1(ObjectId id, string name)
             => BuildResult(id, name);
 
         // Shows "IsNew" as argument name
         [HttpGet("testgetquerystring2")]
-        public string GetQuerystring2([FromQuery] long id, string name)
+        public string GetQuerystring2([FromQuery] ObjectId id, string name)
             => BuildResult(id, name);
 
         // Same as above, now with name specified but is ignored
         [HttpGet("testgetquerystring3")]
-        public string GetQuerystring3([FromQuery(Name = "id")] long id, string name)
+        public string GetQuerystring3([FromQuery(Name = "id")] ObjectId id, string name)
             => BuildResult(id, name);
 
 
