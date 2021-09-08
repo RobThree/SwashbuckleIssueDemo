@@ -28,7 +28,7 @@ namespace SwashbuckleTest.Controllers
 
         // Same as above, now with name specified but is ignored
         [HttpGet("testgetquerystring3")]
-        public string GetQuerystring3([FromQuery(Name = "id")] ObjectId id, string name)
+        public string GetQuerystring3([FromQuery(Name = "idalias")] ObjectId id, string name)
             => BuildResult(id, name);
 
 

@@ -10,7 +10,7 @@ namespace SwashbuckleTest.Infrastructure.ObjectId
         private static readonly ObjectId _nullid = new(0);
         private static readonly CultureInfo _cultureinfo = CultureInfo.InvariantCulture;
 
-        public bool IsNew => _value <= 0;
+        public bool IsNew() => _value <= 0;
 
         private ObjectId(long value) => _value = value;
 
@@ -51,7 +51,7 @@ namespace SwashbuckleTest.Infrastructure.ObjectId
         public static bool operator !=(ObjectId lhs, ObjectId rhs) => !(lhs == rhs);
 
         public static implicit operator long(ObjectId objectId) => objectId._value;
-        public static implicit operator long?(ObjectId objectId) => objectId.IsNew ? null : objectId._value;
+        public static implicit operator long?(ObjectId objectId) => objectId.IsNew() ? null : objectId._value;
         public static implicit operator string(ObjectId objectId) => objectId._value.ToString(_cultureinfo);
 
         public static implicit operator ObjectId(long objectId) => new(objectId);
